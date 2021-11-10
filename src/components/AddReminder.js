@@ -1,19 +1,28 @@
 import React, { useState } from 'react' 
 
-function AddReminder() {
+function AddReminder({ parentCallback }) {
     const [text, setText] = useState("")
-    const [type, setType] = useState("")
-    //const [dateTime, setDateTime] = useState(new Date())
-        
+    
+    const handleSubmit = (e) => {
+        const newReminder = {
+            id: Math.floor(Math.random() * 1000000),
+            text
+        }
+        parentCallback(newReminder)
+
+        e.preventDefault()
+    }
+
     return (
         <div>
-            <h3>Form Here</h3>
-            <form>
+            <form onSubmit={handleSubmit}>
                 <input 
                     type="text"
                     placeholder="Enter Reminder..."
                     value={text}
+                    onChange={ (e) => setText(e.target.value) }
                 />
+                <button>Remind Me!</button>
             </form>
         </div>
     )

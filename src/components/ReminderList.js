@@ -1,10 +1,12 @@
 import React from 'react'
+import Reminder from '../components/Reminder'
 
-function ReminderList() {
-    
+function ReminderList({ reminderList }) {
+
     return (
         <div>
-            <h2>Reminded</h2>
+            <h2>Pending Reminders</h2>
+            {reminderList.map( r => <Reminder key={r.id} reminder={r}/> )}
         </div>
     )
 }
