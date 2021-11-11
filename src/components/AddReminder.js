@@ -10,8 +10,9 @@ function AddReminder({ parentCallback }) {
         const newReminder = {
             id: Math.floor(Math.random() * 1000000),
             text,
-            date: new Date().getTime()
+            date
         }
+        console.log(newReminder.date)
         parentCallback(newReminder)
 
         e.preventDefault()
