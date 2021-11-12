@@ -12,7 +12,6 @@ function AddReminder({ parentCallback }) {
             text,
             date
         }
-        console.log(newReminder.date)
         parentCallback(newReminder)
 
         e.preventDefault()
@@ -35,7 +34,6 @@ function AddReminder({ parentCallback }) {
                     selected={date}
                     onChange={time => setDate(time)}
                 />
-
                 <button>Remind Me!</button>
             </form>
         </div>
