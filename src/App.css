@@ -13,6 +13,23 @@
   color: white;
 }
 
+.reminder {
+  border-style: dashed;
+  border-color: rgb(253, 32, 32);
+  margin: 0;
+}
+
+.reminder > h2 {
+  text-align: left;
+  margin: 0;
+}
+
+.reminder > p {
+  margin: 0;
+  margin-top: 15px;
+  text-align: left;
+}
+
 input {
   width: 100%
 }

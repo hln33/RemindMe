@@ -12,9 +12,9 @@ function Reminder({reminder}) {
         if (secDiff > 0) {
             timeLeft = {
                 days: Math.floor(secDiff / (60 * 60 * 24)),
-                hours: Math.floor((secDiff / (60 * 60)) % 24),
-                minutes: Math.floor((secDiff / 60) % 60),
-                seconds: Math.floor(secDiff % 60)
+                hr: Math.floor((secDiff / (60 * 60)) % 24),
+                min: Math.floor((secDiff / 60) % 60),
+                sec: Math.floor(secDiff % 60)
             }
             setTimeRemaining(timeLeft)
         }
@@ -24,11 +24,17 @@ function Reminder({reminder}) {
         setInterval(() => findTimeLeft(), 1000)
     }, [])
 
-
     return (
-        <div>
-            <h3>{reminder.text}</h3>
-            <h3>Time until Reminded: {timeRemaining.days} D {timeRemaining.hours} H {timeRemaining.minutes} M {timeRemaining.seconds} S</h3>
+        <div className="reminder">
+            <h2>{reminder.text}</h2>
+            <p>Time Until Reminded: <br/>
+                <span style={{fontWeight: "bold"}}>
+                    {timeRemaining.days ? ` ${timeRemaining.days} D ` : null} 
+                    {timeRemaining.hr ? `${timeRemaining.hr} H ` : null}
+                    {timeRemaining.min ? `${timeRemaining.min} M ` : null} 
+                    {timeRemaining.sec? `${timeRemaining.sec} S ` : null}
+                </span>
+            </p>
         </div>
     )
 }
