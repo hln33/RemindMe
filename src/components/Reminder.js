@@ -25,6 +25,8 @@ function Reminder({reminder, removeReminder}) {
     }, [])
 
     const handleRemove = () => {
+        // add to database through back end
+        
         removeReminder(reminder.id)
     }
 
@@ -39,7 +41,7 @@ function Reminder({reminder, removeReminder}) {
                     {timeRemaining.sec? `${timeRemaining.sec} S ` : null}
                 </span>
             </p>
-            <button onClick={handleRemove}> REMOVE </button>
+            <button onClick={handleRemove}> Cancel </button>
         </div>
     )
 }
