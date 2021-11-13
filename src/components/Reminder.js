@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react' 
 
-function Reminder({reminder}) {
+function Reminder({reminder, removeReminder}) {
     const [timeRemaining, setTimeRemaining] = useState({})
 
     const findTimeLeft = () => {
@@ -24,6 +24,10 @@ function Reminder({reminder}) {
         setInterval(() => findTimeLeft(), 1000)
     }, [])
 
+    const handleRemove = () => {
+        removeReminder(reminder.id)
+    }
+
     return (
         <div className="reminder">
             <h2>{reminder.text}</h2>
@@ -35,6 +39,7 @@ function Reminder({reminder}) {
                     {timeRemaining.sec? `${timeRemaining.sec} S ` : null}
                 </span>
             </p>
+            <button onClick={handleRemove}> REMOVE </button>
         </div>
     )
 }
