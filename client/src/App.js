@@ -7,13 +7,13 @@ function App() {
   const [reminders, setReminders] = useState([])
   useEffect(() => console.log(reminders), [reminders])
   useEffect(() => {
-    axios.get('http://localhost:3001/api/').then((res) => {
+    axios.get('http://localhost:3001/api').then((res) => {
      
     })
   }, [])
 
   const handleAddition = newReminder => {
-    axios.post('http://localhost:3001/api/')
+    axios.post('http://localhost:3001/api')
     setReminders([newReminder, ...reminders])
   }
   const handleRemoval = id => {
