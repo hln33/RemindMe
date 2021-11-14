@@ -1,26 +1,12 @@
 import { useEffect, useState } from 'react';
 import {ReminderList, AddReminder} from './index';
-import axios from 'axios';
+import {getReminders, postReminder, deleteReminder} from './httpCalls'
 import './App.css';
-
-const postReminder = () => {
-  axios.post('http://localhost:3001/api', newReminder)
-    .then(res => console.log(res))
-    .catch(err => console.log(err))
-}
-
-const deleteReminder = (id) => {
-  axios.delete(`http://localhost:3001/api/${id}`)
-    .then(res => console.log(res))
-    .catch(err => console.log(err))
-}
 
 function App() {
   const [reminders, setReminders] = useState([])
   useEffect(() => {
-    axios.get('http://localhost:3001/api')
-      .then(res => console.log(res))
-      .catch(err => console.log(err))
+    getReminders()
   }, [])
 
   const handleAddition = newReminder => {
