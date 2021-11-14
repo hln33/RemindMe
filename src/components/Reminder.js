@@ -21,13 +21,6 @@ function Reminder({reminder, removeReminder}) {
         else {
             handleRemove()
         }
-
-        console.log(secDiff)
-
-        // if (Object.values(timeLeft).every(unit => unit === 0)) {
-        //     console.log(timeLeft)
-        //     handleRemove()
-        // }
     }
 
     useEffect(() => {
@@ -37,9 +30,7 @@ function Reminder({reminder, removeReminder}) {
         }
     }, [])
 
-    const handleRemove = () => {
-        // add to database through back end
-        
+    const handleRemove = () => {        
         removeReminder(reminder.id)
     }
 
