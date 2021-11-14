@@ -17,11 +17,24 @@ function Reminder({reminder, removeReminder}) {
                 sec: Math.floor(secDiff % 60)
             }
             setTimeRemaining(timeLeft)
+        } 
+        else {
+            handleRemove()
         }
+
+        console.log(secDiff)
+
+        // if (Object.values(timeLeft).every(unit => unit === 0)) {
+        //     console.log(timeLeft)
+        //     handleRemove()
+        // }
     }
 
     useEffect(() => {
-        setInterval(() => findTimeLeft(), 1000)
+        const intervalID = setInterval(() => findTimeLeft(), 1000)
+        return () => {
+            clearInterval(intervalID)
+        }
     }, [])
 
     const handleRemove = () => {
