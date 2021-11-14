@@ -6,16 +6,16 @@ import './App.css';
 function App() {
   const [reminders, setReminders] = useState([])
   useEffect(() => {
-    getReminders()
+    //getReminders()
   }, [])
 
   const handleAddition = newReminder => {
-    postReminder(newReminder.id)
+    //postReminder(newReminder.id)
     setReminders([newReminder, ...reminders])
   }
 
   const handleRemoval = id => {
-    deleteReminder(id)
+    //deleteReminder(id)
     setReminders(reminders.filter(r => r.id !== id))
   }
 

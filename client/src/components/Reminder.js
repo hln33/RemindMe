@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 
 function Reminder({reminder, removeReminder}) {
     const [timeRemaining, setTimeRemaining] = useState({})
+    const handleRemove = () => removeReminder(reminder.id)
 
     const findTimeLeft = () => {
         const remindDate = reminder.date
@@ -29,10 +30,6 @@ function Reminder({reminder, removeReminder}) {
             clearInterval(intervalID)
         }
     }, [])
-
-    const handleRemove = () => {        
-        removeReminder(reminder.id)
-    }
 
     return (
         <div className="reminder">
