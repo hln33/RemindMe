@@ -1,12 +1,12 @@
 const mongoose = require('mongoose')
+const Reminder = require('./model')
 const express = require('express')
 
-const reminderSchema = new mongoose.Schema({
-    text: String,
-    date: Date,
-    phone: String
-})
-const Reminder = mongoose.model('Reminder', reminderSchema)
+mongoose.connect('mongodb://localhost/test')
+let db = mongoose.connection
+
+db.once('open', () => console.log('Connected to MongoDb'))
+db.on('error', err => console.log(err))
 
 const app = express()
 
