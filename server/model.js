@@ -5,4 +5,6 @@ const reminderSchema = new mongoose.Schema({
     date: Date,
     phone: String
 })
-const Reminder = module.exports = mongoose.model('Reminder', reminderSchema)
+const Reminder = mongoose.model('Reminder', reminderSchema)
+
+module.exports = Reminder
